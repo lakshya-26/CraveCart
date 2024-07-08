@@ -14,7 +14,6 @@ const handleValidationErrors = async(req: Request, res: Response, next: NextFunc
 
 export const validateMyUserRequest = [
     body("name").isString().notEmpty().withMessage("Name must be a string"),
-    body("email").isEmail().notEmpty().withMessage("Email must be a valid email"),
     body("addressLine1").isString().notEmpty().withMessage("addressLine1 must be a string"),
     body("city").isString().notEmpty().withMessage("city must be a string"),
     body("country").isString().notEmpty().withMessage("country must be a string"),
