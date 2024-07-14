@@ -5,6 +5,20 @@ import mongoose from "mongoose";
 import stream from "stream";
 
 
+const getMyRestaurant = async(req: Request, res: Response) => {
+  try {
+    const restaurant = await Restaurant.findOne({user: req.userId});
+    if(!restaurant){
+      return res.status(404).json({message: "restaurant not found"});
+    }
+    res.json(restaurant);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({message: "Error fetching restaurant"});
+  }
+}
+
+
 const uploadToCloudinary = (fileBuffer: Buffer, options: object): Promise<any> => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.v2.uploader.upload_stream(options, (error, result) => {
@@ -52,5 +66,6 @@ const createMyRestaurant = async (req: Request, res: Response) => {
 };
 
 export default {
-    createMyRestaurant
+    getMyRestaurant,
+    createMyRestaurant,
 }
