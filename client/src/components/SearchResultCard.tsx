@@ -11,7 +11,7 @@ const SearchResultCard = ({ restaurant }: Props) => {
   return (
     <Link
       to={`/detail/${restaurant._id}`}
-      className="grid lg:grid-cols-[2fr_3fr] gap-5 group"
+      className="grid lg:grid-cols-[2fr_3fr] gap-5 mb-10"
     >
       <AspectRatio ratio={16 / 6}>
         <img
