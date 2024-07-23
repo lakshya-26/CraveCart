@@ -34,18 +34,29 @@ const DetailPage = () => {
             ? { ...cartitem, quantity: cartitem.quantity + 1 }
             : cartitem
         );
-      }else {
+      } else {
         updatedCartItems = [
-            ...prevCartItems, {
-                _id: menuItem._id,
-                name: menuItem.name,
-                price: menuItem.price,
-                quantity: 1
-            }
-        ]
+          ...prevCartItems,
+          {
+            _id: menuItem._id,
+            name: menuItem.name,
+            price: menuItem.price,
+            quantity: 1,
+          },
+        ];
       }
 
-      return updatedCartItems
+      return updatedCartItems;
+    });
+  };
+
+  const removeFromCart = (cartItem: CartItem) => {
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = prevCartItems.filter(
+        (item) => cartItem._id !== item._id
+      );
+
+      return updatedCartItems;
     });
   };
 
@@ -66,13 +77,16 @@ const DetailPage = () => {
           <RestaurantInfo restaurant={restaurant} />
           <span className="text-2xl font-bold tracking-tight">Menu</span>
           {restaurant.menuItems.map((menuItem) => (
-            <MenuItem menuItem={menuItem} addToCart={() => addToCart(menuItem)} />
+            <MenuItem
+              menuItem={menuItem}
+              addToCart={() => addToCart(menuItem)}
+            />
           ))}
         </div>
 
         <div>
           <Card>
-            <OrderSummary restaurant={restaurant} cartItems={cartItems} />
+            <OrderSummary restaurant={restaurant} cartItems={cartItems} removeFromCart={removeFromCart} />
           </Card>
         </div>
       </div>
