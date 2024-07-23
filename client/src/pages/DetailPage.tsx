@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { MenuItem as MenuItemType } from "../types";
 import CheckoutButton from "@/components/CheckoutButton";
+import { UserformData } from "@/forms/user-profle-form/UserProfileForm";
 
 export type CartItem = {
   _id: string;
@@ -74,6 +75,10 @@ const DetailPage = () => {
     });
   };
 
+  const onCheckout = (userFormData: UserformData) => {
+    console.log("user form data", userFormData);
+  }
+
   if (isLoading || !restaurant) {
     return <div>Loading...</div>;
   }
@@ -106,7 +111,7 @@ const DetailPage = () => {
               removeFromCart={removeFromCart}
             />
             <CardFooter>
-              <CheckoutButton />
+              <CheckoutButton disabled={cartItems.length === 0} onCheckout={onCheckout} />
             </CardFooter>
           </Card>
         </div>
