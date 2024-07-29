@@ -29,7 +29,7 @@ app.get("/health", async(req:Request, res:Response) => {
 app.use("/api/my/user", userRoutes);
 app.use("/api/my/restaurant", restaurantRoutes);
 app.use("/api/restaurant", restaRoutes);
-app.use("api/order", orderRoutes);
+app.use("/api/order", orderRoutes);
 
 app.listen(7000, () => {
     console.log("Server is running on port 7000");
