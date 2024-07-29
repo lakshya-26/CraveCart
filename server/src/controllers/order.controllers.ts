@@ -6,6 +6,17 @@ import Order from "../models/order.models";
 const STRIPE = new Stripe(process.env.STRIPE_API_KEY as string);
 const FRONTEND_URL = process.env.FRONTEND_URL as string;
 
+
+const stripeWebhookhandler = async(req: Request, res: Response) => {
+  console.log("RECEIEVED EVENT");
+  console.log("===============");
+  console.log("event:", req.body);
+  res.send();
+}
+
+
+
+
 type CheckoutSessionRequest = {
   cartItems: {
     menuItemId: string;
@@ -127,4 +138,5 @@ const createSession = async (
 
 export default {
     createCheckoutSession,
+    stripeWebhookhandler
 }
