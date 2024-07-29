@@ -5,17 +5,38 @@ import Order from "../models/order.models";
 
 const STRIPE = new Stripe(process.env.STRIPE_API_KEY as string);
 const FRONTEND_URL = process.env.FRONTEND_URL as string;
+const STRIPE_ENDPOINT = process.env.STRIPE_WEBHOOK_KEY_SECRET as string;
 
+const stripeWebhookhandler = async (req: Request, res: Response) => {
+  let event;
+  try {
+    const sig = req.headers["stripe-signature"];
+    event = STRIPE.webhooks.constructEvent(
+      req.body,
+      sig as string,
+      STRIPE_ENDPOINT
+    );
+  } catch (error: any) {
+    console.log(error);
+    return res.status(400).send(`Webhook error: ${error.message}`);
+  }
 
-const stripeWebhookhandler = async(req: Request, res: Response) => {
-  console.log("RECEIEVED EVENT");
-  console.log("===============");
-  console.log("event:", req.body);
-  res.send();
-}
+  if(event.type === "checkout.session.completed"){
+    const order = await Order.findById(event.data.object.metadata?.orderId);
 
+    if(!order){
+      return res.status(404).json({message:"order not found!"});
+    }
 
+    order.totalAmount = event.data.object.amount_total;
+    order.status = "paid";
 
+    await order.save();
+  }
+
+  res.status(200).send();
+
+};
 
 type CheckoutSessionRequest = {
   cartItems: {
@@ -49,7 +70,7 @@ const createCheckoutSession = async (req: Request, res: Response) => {
       deliveryDetails: CheckoutSessionRequest.deliveryDetails,
       cartitems: CheckoutSessionRequest.cartItems,
       createdAt: new Date(),
-    })
+    });
 
     const lineItems = createLineItems(
       CheckoutSessionRequest,
@@ -137,6 +158,6 @@ const createSession = async (
 };
 
 export default {
-    createCheckoutSession,
-    stripeWebhookhandler
-}
+  createCheckoutSession,
+  stripeWebhookhandler,
+};
