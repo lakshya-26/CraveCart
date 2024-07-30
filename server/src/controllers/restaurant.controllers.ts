@@ -129,9 +129,35 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
   }
 };
 
+const updateOrderStatus = async(req:Request, res: Response) => {
+  try {
+    const {orderId} = req.params;
+    const {status} = req.body;
+
+    const order = await Order.findById(orderId);
+    if(!order){
+      return res.status(404).json({message: "Order not found!"});
+    }
+
+    const restaurant = await Restaurant.findById(order.restaurant);
+
+    if(restaurant?.user?._id.toString() !== req.userId){
+      return res.status(401).send();
+    }
+
+    order.status = status;
+    await order.save();
+
+    res.status(200).json(order);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({message: "unable to update order status"});  }
+}
+
 export default {
   getMyRestaurant,
   getMyRestaurantOrders,
   createMyRestaurant,
   updateMyRestaurant,
+  updateOrderStatus
 };
