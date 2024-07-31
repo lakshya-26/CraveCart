@@ -8,8 +8,23 @@ import ManageRestaurantPage from "./pages/ManageRestaurantPage";
 import SearchPage from "./pages/SearchPage";
 import DetailPage from "./pages/DetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
+import { useEffect, useState } from "react";
+import Spinner from "./components/Spinner";
 
 const AppRoutes = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <Routes>
       <Route
