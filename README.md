@@ -100,7 +100,6 @@ CraveCart is a dynamic food ordering web application built using the MERN stack,
 
 1. **Clone the Repository:**
     - git clone
-    - 
     ```bash
     https://github.com/lakshya-26/CraveCart
     ```
@@ -141,7 +140,6 @@ CraveCart is a dynamic food ordering web application built using the MERN stack,
 
 1. **Clone the Repository:**
     - git clone
-    - 
     ```bash
     https://github.com/lakshya-26/CraveCart
     ```
@@ -185,5 +183,5 @@ CraveCart is a dynamic food ordering web application built using the MERN stack,
 ## License
 The CraveCart application is distributed under the MIT License, which means you're free to use, modify, and distribute the code as per the terms of the license.
 
-Conclusion
+## Conclusion
 CraveCart is a cutting-edge food ordering application that revolutionizes the way users connect with their favorite restaurants. Built with a robust tech stack including React, Node.js, and MongoDB, CraveCart offers seamless user experiences with features like advanced search, secure checkout via Stripe, and real-time order tracking. With integrations such as Auth0 for authentication and Cloudinary for image management, CraveCart ensures security and efficiency at every step. Its responsive design makes it accessible across all devices, providing a convenient and enjoyable food ordering process. Explore CraveCart and experience a new standard in food delivery.
