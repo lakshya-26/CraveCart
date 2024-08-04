@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero-slider">
+    <div className="hero-slider -z-10">
       {people.map((person, personIndex) => {
         const { id, image } = person;
         let position = "nextSlide";

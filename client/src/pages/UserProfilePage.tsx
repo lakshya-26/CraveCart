@@ -13,7 +13,9 @@ const UserProfilePage = () => {
     return <span>Unable to load user profile</span>;
   }
   return (
-    <UserProfileForm currentUser={currentUser} onSave={updateUser} isLoading={isUpdateLoading} />
+    <div>
+      <UserProfileForm currentUser={currentUser} onSave={updateUser} isLoading={isUpdateLoading} />
+    </div>
   )
 }
 

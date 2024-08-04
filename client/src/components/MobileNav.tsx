@@ -14,7 +14,8 @@ import MobileNavLinks from "./MobileNavLinks";
 const MobileNav = () => {
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
   return (
-    <Sheet>
+    <div className="">
+      <Sheet>
       <SheetTrigger>
         <Menu className="text-orange-500 " />
       </SheetTrigger>
@@ -44,6 +45,7 @@ const MobileNav = () => {
         </SheetDescription>
       </SheetContent>
     </Sheet>
+    </div>
   );
 };
 

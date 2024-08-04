@@ -19,7 +19,7 @@ const HomePage = () => {
     <div className="flex flex-col gap-12">
       {/* Full-width section for search bar */}
       <div className="container mx-auto w-[85%] px-4 md:px-32 bg-white rounded-xl shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
-        <h1 className="text-5xl font-bold tracking-tight text-orange-600">
+        <h1 className="md:text-5xl text-3xl font-bold tracking-tight text-orange-600">
           Tuck into a takeaway today
         </h1>
         <span className="text-xl">Food is just a click away</span>
@@ -30,7 +30,7 @@ const HomePage = () => {
       </div>
 
       {/* Full-width Food Gallery */}
-      <div className="w-full py-8">
+      <div className="w-full">
         <FoodGallery />
       </div>
 

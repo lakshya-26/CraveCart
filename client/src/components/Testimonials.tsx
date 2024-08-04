@@ -2,7 +2,7 @@ function Testimonials() {
   return (
     <div className="px-6 py-20">
       <div className="mx-auto max-w-screen-xl">
-        <h2 className="heading heading text-4xl text-center font-semibold text-gray-700 font-serif">
+        <h2 className="heading md:text-4xl text-2xl text-center font-semibold text-gray-700 font-serif">
           Our Customers can’t live Without us
         </h2>
         <div className="flex justify-between mt-20 italic lg:text-base  text-sm gap-6 sm:flex-row flex-col">
