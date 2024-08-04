@@ -65,9 +65,9 @@ type CheckoutSessionRequest = {
 };
 const createCheckoutSession = async (req: Request, res: Response) => {
   try {
-    const CheckoutSessionRequest: CheckoutSessionRequest = req.body;
+    const checkoutSessionRequest: CheckoutSessionRequest = req.body;
     const restaurant = await Restaurant.findById(
-      CheckoutSessionRequest.restaurantId
+      checkoutSessionRequest.restaurantId
     );
 
     if (!restaurant) {
@@ -78,13 +78,13 @@ const createCheckoutSession = async (req: Request, res: Response) => {
       restaurant: restaurant,
       user: req.userId,
       status: "placed",
-      deliveryDetails: CheckoutSessionRequest.deliveryDetails,
-      cartitems: CheckoutSessionRequest.cartItems,
+      deliveryDetails: checkoutSessionRequest.deliveryDetails,
+      cartitems: checkoutSessionRequest.cartItems,
       createdAt: new Date(),
     });
 
     const lineItems = createLineItems(
-      CheckoutSessionRequest,
+      checkoutSessionRequest,
       restaurant.menuItems
     );
 

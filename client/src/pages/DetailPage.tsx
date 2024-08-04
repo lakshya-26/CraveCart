@@ -10,6 +10,7 @@ import { MenuItem as MenuItemType } from "../types";
 import CheckoutButton from "@/components/CheckoutButton";
 import { UserformData } from "@/forms/user-profle-form/UserProfileForm";
 import { useCreateCheckoutSession } from "@/api/OrderRestaurantApi";
+import Spinner from "@/components/Spinner";
 
 export type CartItem = {
   _id: string;
@@ -106,7 +107,7 @@ const DetailPage = () => {
   };
 
   if (isLoading || !restaurant) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   return (
     <div className="flex flex-col gap-10">
