@@ -1,144 +1,189 @@
 # CraveCart
 
-# Overview
+## Overview
 CraveCart is a dynamic food ordering web application built using the MERN stack, offering a seamless user experience with secure Stripe payment integration. Styled with Tailwind CSS and ShadCN, CraveCart delivers a modern, responsive design that ensures easy navigation and efficient ordering on any device.
 
-# Features
+## Features
 
-<h3>User Management</h3>
-<h4>User Registration and Login:</h4>
+**User Management**
+**User Registration and Login:**
 - Secure user authentication with Auth0 integration.
 - Easy registration and login process for new and existing users.
-Profile Management:
-Users can view and edit their personal profiles.
-Update account details such as name, contact information, and preferences.
-Restaurant Search and Discovery
-Advanced Search:
+  
+**Profile Management:**
+- Users can view and edit their personal profiles.
+- Update account details such as name, contact information, and preferences.
+- Restaurant Search and Discovery
+  
+**Advanced Search:**
+- Search for restaurants by name, cuisine, or location.
+- Real-time search results as users type their queries.
+  
+**Sort and Filter Options:**
+- Sort restaurants by popularity, rating, or delivery time.
+- Filter by cuisine type, price range, and special offers.
+  
+**Pagination:**
+- Efficient pagination for large lists of restaurants.
+- Smooth navigation through multiple pages of search results.
+- Restaurant Management
+  
+**Restaurant Profile:**
+- Detailed restaurant profiles with images, menus, and customer reviews.
+- Owners can add images and update menu items through Cloudinary integration.
+  
+**Menu Management:**
+- Easily add, edit, or remove menu items.
+- Display item descriptions, prices, and special dietary information.
+- Shopping Cart and Checkout
+  
+**Cart Management:**
+- Add, remove, and update items in the shopping cart.
+- View real-time price updates and item totals.
+  
+**Secure Checkout:**
+- Checkout process powered by Stripe for secure payments.
+- Multiple payment methods supported for user convenience.
+- Order Management
+  
+**Order Tracking:**
+- Real-time order status updates from preparation to delivery.
+- Notifications for order progress and estimated delivery time.
+  
+**Order History:**
+- View past orders and reorder favorite meals quickly.
+- User Interface and Experience.
 
-Search for restaurants by name, cuisine, or location.
-Real-time search results as users type their queries.
-Sort and Filter Options:
+**Responsive Design:**
+- Fully responsive layout using ShadCN and Tailwind CSS.
+- Optimized for mobile, tablet, and desktop devices.
+  
+**Intuitive Navigation:**
+- User-friendly interface with clear navigation paths.
+- Consistent design and branding across all pages.
 
-Sort restaurants by popularity, rating, or delivery time.
-Filter by cuisine type, price range, and special offers.
-Pagination:
+## Technology Stack
 
-Efficient pagination for large lists of restaurants.
-Smooth navigation through multiple pages of search results.
-Restaurant Management
-Restaurant Profile:
+**Frontend:**
+- Built with React for dynamic and interactive user interfaces.
+- Utilizes React Hook Form for efficient form handling.
+  
+**Backend:**
+- Node.js and Express for a scalable and robust server environment.
+- MongoDB for flexible and reliable data storage.
+  
+**Deployment:**
+- Deployed on Render for high availability and performance.
+- Integration with Third-Party Services
+  
+**Auth0 for Authentication:**
+- Secure and scalable authentication solution.
+  
+**Stripe for Payments:**
+- Seamless and secure payment processing.
 
-Detailed restaurant profiles with images, menus, and customer reviews.
-Owners can add images and update menu items through Cloudinary integration.
-Menu Management:
+**Cloudinary for Image Management:**
+- Efficient image storage and retrieval with optimization features.
 
-Easily add, edit, or remove menu items.
-Display item descriptions, prices, and special dietary information.
-Shopping Cart and Checkout
-Cart Management:
+## Installation
 
-Add, remove, and update items in the shopping cart.
-View real-time price updates and item totals.
-Secure Checkout:
+### Prerequisites
 
-Checkout process powered by Stripe for secure payments.
-Multiple payment methods supported for user convenience.
-Order Management
-Order Tracking:
+- Node.js and npm installed
+- Auth0 configured
+- Cloudinary configured
+- Stripe configured
+  
+### Getting Started
 
-Real-time order status updates from preparation to delivery.
-Notifications for order progress and estimated delivery time.
-Order History:
+**Frontend**
 
-View past orders and reorder favorite meals quickly.
-Access detailed order receipts and transaction history.
-User Interface and Experience
-Responsive Design:
+1. **Clone the Repository:**
+    - git clone
+    - 
+    ```bash
+    https://github.com/lakshya-26/CraveCart
+    ```
+    ```bash
+    cd client
+    ```
 
-Fully responsive layout using ShadCN and Tailwind CSS.
-Optimized for mobile, tablet, and desktop devices.
-Intuitive Navigation:
+2. **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+  
+3. **Environment Variables:**
 
-User-friendly interface with clear navigation paths.
-Consistent design and branding across all pages.
-Technology Stack
-Frontend:
+    - Create a .env file in the root directory and add the following configurations:
+    ```env
+    VITE_AUTH0_DOMAIN=auth0domain
+    VITE_AUTH0_CLIENT_ID=auth0clientid
+    VITE_AUTH0_CALLBACK_URL=auth0callbackurl
+    VITE_AUTH0_AUDIENCE=audiencename
+    VITE_API_BASE_URL=serverurl
+    ```
 
-Built with React for dynamic and interactive user interfaces.
-Utilizes React Hook Form for efficient form handling.
-Backend:
+4. **Run the Application:**
 
-Node.js and Express for a scalable and robust server environment.
-MongoDB for flexible and reliable data storage.
-Deployment:
+    First, run the development server:
+    ```bash
+    npm run dev
+    #or
+    yarn dev
+    #or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
-Deployed on Render for high availability and performance.
-Integration with Third-Party Services
-Auth0 for Authentication:
+**Backend** 
 
-Secure and scalable authentication solution.
-Stripe for Payments:
+1. **Clone the Repository:**
+    - git clone
+    - 
+    ```bash
+    https://github.com/lakshya-26/CraveCart
+    ```
+    ```bash
+    cd server
+    ```
 
-Seamless and secure payment processing.
-Cloudinary for Image Management:
+2. **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+    
+3. **Environment Variables:**
 
-Efficient image storage and retrieval with optimization features.
-Additional Features
-Favorite Restaurants:
-Users can save favorite restaurants for quick access.
-Promotions and Discounts:
-Special offers and promotions available for users.
-Installation
-Prerequisites
-Node.js and pnpm installed
-Firebase CLI installed
-Ollama account and downloaded
-Getting Started
-Clone the Repository:
+    - Create a .env file in the root directory and add the following configurations:
+    ```env
+    MONGODB_CONNECTION_STRING=mongouri
+    AUTH0_AUDIENCE=audiencename
+    AUTH0_ISSUER_BASE_URL=baseurl
+    CLOUDINARY_CLOUD_NAME=name
+    CLOUDINARY_API_KEY=apikey
+    CLOUDINARY_API_SECRET=secret
+    STRIPE_API_KEY=apikey
+    FRONTEND_URL=frontendurl
+    STRIPE_WEBHOOK_KEY_SECRET=stripehookkwysecret
+    ```
 
-git clone
-https://github.com/debarshee2004/h4b_telemedevin.git
-cd h4b_telemedevin
-Install Dependencies:
+4. **Run the Application:**
 
-pnpm install
-Set Up Firebase:
-
-Create a Firebase project in the Firebase console.
-Configure Firebase in the app:
-firebase init
-Deploy AI Bot with Ollama:
-
-Download and set up the Quen2:0.5b model via Ollama:
-ollama pull qwen2:0.5b
-Environment Variables:
-
-Create a .env file in the root directory and add the following configurations:
-FIREBASE_API_KEY=your_firebase_api_key
-FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
-FIREBASE_PROJECT_ID=your_project_id
-FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
-FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-FIREBASE_APP_ID=your_app_id
-AI_BOT_URL=http://localhost:your_bot_port
-Run the Application:
-
-First, run the development server:
-
-npm run dev
-#or
-yarn dev
-#or
-pnpm dev
-# or
-bun dev
-Contributions
-Frontend: Debarshee Chakraborty and Subhadip Santra
-
-Backend: Debasmita Goswami and Ayushi Srivastava
-
-License
-The h4b_telemedevin application is distributed under the MIT License, which means you're free to use, modify, and distribute the code as per the terms of the license.
+    First, run the development server:
+    ```bash
+    npm run dev
+    #or
+    yarn dev
+    #or
+    pnpm dev
+    # or
+    bun dev
+    ```
+    
+## License
+The CraveCart application is distributed under the MIT License, which means you're free to use, modify, and distribute the code as per the terms of the license.
 
 Conclusion
-The Next Firebase GenKit Telemedicine App represents a significant advancement in healthcare accessibility and efficiency. By integrating Firebase for robust backend support and deploying an AI bot based on the Quen2:0.5b model via Ollama, the app empowers users with quick and accurate initial diagnoses. This not only reduces the workload on healthcare professionals but also provides patients with timely medical insights without the need for physical consultations.
+CraveCart is a cutting-edge food ordering application that revolutionizes the way users connect with their favorite restaurants. Built with a robust tech stack including React, Node.js, and MongoDB, CraveCart offers seamless user experiences with features like advanced search, secure checkout via Stripe, and real-time order tracking. With integrations such as Auth0 for authentication and Cloudinary for image management, CraveCart ensures security and efficiency at every step. Its responsive design makes it accessible across all devices, providing a convenient and enjoyable food ordering process. Explore CraveCart and experience a new standard in food delivery.
